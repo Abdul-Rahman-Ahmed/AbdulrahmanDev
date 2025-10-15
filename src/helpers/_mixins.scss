@@ -1,0 +1,36 @@
+@mixin transition($time) {
+  transition: $time;
+  -webkit-transition: $time;
+  -moz-transition: $time;
+  -ms-transition: $time;
+  -o-transition: $time;
+}
+
+@mixin border-radius($num) {
+  border-radius: $num;
+  -webkit-border-radius: $num;
+  -moz-border-radius: $num;
+  -ms-border-radius: $num;
+  -o-border-radius: $num;
+}
+
+@mixin transform($action) {
+  transform: $action;
+  -webkit-transform: $action;
+  -moz-transform: $action;
+  -ms-transform: $action;
+  -o-transform: $action;
+}
+
+@mixin flex($gap, $jc, $ai) {
+  display: flex;
+  @if $gap != n {
+    gap: $gap;
+  }
+  @if $jc != n {
+    justify-content: $jc;
+  }
+  @if $ai != n {
+    align-items: $ai;
+  }
+}

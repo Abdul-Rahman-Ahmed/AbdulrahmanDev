@@ -1,0 +1,44 @@
+@use '../../helpers/mixins' as *;
+
+header {
+  @include flex(20px, space-between, center);
+  background-color: #11071f;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  min-height: 60px;
+  .logo {
+    min-width: 150px;
+    max-width: 200px;
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  nav {
+    @include flex(20px, center, n);
+    li {
+      text-transform: capitalize;
+      list-style: none;
+      font-size: 20px;
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .btn {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: fit-content;
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+}
