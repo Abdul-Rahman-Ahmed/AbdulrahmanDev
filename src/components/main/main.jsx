@@ -7,14 +7,42 @@ import vector4 from '../../assets/vector-4.png'
 import me from '../../assets/me.png'
 import { Link } from 'react-router-dom'
 import './main.scss'
+import { useState, useEffect } from 'react'
 
 const Main = () => {
+  const text = 'Hi there 👋 I am Abdulrahman Ahmed'
+  const [displayedText, setDisplayedText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    let timeout
+
+    if (!isDeleting) {
+      if (displayedText.length < text.length) {
+        timeout = setTimeout(() => {
+          setDisplayedText(text.slice(0, displayedText.length + 1))
+        }, 100)
+      } else {
+        timeout = setTimeout(() => setIsDeleting(true), 500)
+      }
+    } else {
+      if (displayedText.length > 1) {
+        timeout = setTimeout(() => {
+          setDisplayedText(text.slice(0, displayedText.length - 1))
+        }, 50)
+      } else {
+        setIsDeleting(false)
+      }
+    }
+
+    return () => clearTimeout(timeout)
+  }, [displayedText, isDeleting, text])
   return (
     <section className="main container">
       <div className="content">
-        <div className="hello-message">Hi there 👋 I'm Abdulrahman Ahmed</div>
+        <div>{displayedText}</div>
         <p>
-          a passionate Full-Stack JavaScript Developer who builds responsive,
+          A passionate Full-Stack JavaScript Developer who builds responsive,
           dynamic web applications that combine creativity and performance.
           Check out my projects or download my resume below!
         </p>

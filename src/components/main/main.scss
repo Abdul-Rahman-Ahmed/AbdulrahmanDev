@@ -57,6 +57,14 @@
       margin-block: 50px;
       padding-block: 80px;
     }
+    @keyframes move {
+      from {
+        top: 40%;
+      }
+      to {
+        top: 45%;
+      }
+    }
 
     img {
       z-index: 4;
@@ -64,6 +72,10 @@
       @include transform(translate(-50%, -50%));
       top: 45%;
       left: 50%;
+      &.me {
+        animation: move 1s infinite alternate ease-in-out;
+        -webkit-animation: move 1s infinite alternate ease-in-out;
+      }
     }
 
     .border-vector {
