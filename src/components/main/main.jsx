@@ -10,7 +10,7 @@ import './main.scss'
 
 const Main = () => {
   return (
-    <section className="about container">
+    <section className="main container">
       <div className="content">
         <div className="hello-message">Hi there 👋 I'm Abdulrahman Ahmed</div>
         <p>

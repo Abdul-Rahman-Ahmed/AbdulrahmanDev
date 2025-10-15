@@ -1,6 +1,6 @@
 @use '../../helpers/mixins' as *;
 
-.about {
+.main {
   background-color: #0a0116;
   color: #fff;
   @include flex(n, space-between, center);
